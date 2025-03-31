@@ -3,7 +3,7 @@ import database
 def obtener_pacientes():
     conn = database.conectar_db()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM pacientes')
+    cursor.execute('SELECT * FROM pacientes ORDER BY id') # Ordena por ID
     pacientes = cursor.fetchall()
     cursor.close()
     conn.close()
