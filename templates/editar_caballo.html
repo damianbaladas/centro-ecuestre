@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Caballo</title>
+</head>
+<body>
+    <h1>Editar Caballo</h1>
+    <form method="POST">
+        <input type="text" name="nombre" value="{{ caballo[1] }}">
+        <input type="text" name="raza" value="{{ caballo[2] }}">
+        <input type="number" name="edad" value="{{ caballo[3] }}">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

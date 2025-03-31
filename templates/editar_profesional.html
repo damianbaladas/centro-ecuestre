@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Profesional</title>
+</head>
+<body>
+    <h1>Editar Profesional</h1>
+    <form method="POST">
+        <input type="text" name="ci" value="{{ profesional[1] }}">
+        <input type="text" name="nombre" value="{{ profesional[2] }}">
+        <input type="text" name="apellidos" value="{{ profesional[3] }}">
+        <input type="text" name="especialidad" value="{{ profesional[4] }}">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

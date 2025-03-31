@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Sesión</title>
+</head>
+<body>
+    <h1>Editar Sesión</h1>
+    <form method="POST">
+        <input type="text" name="fecha" value="{{ sesion[1] }}">
+        <input type="text" name="paciente_ci" value="{{ sesion[2] }}">
+        <input type="text" name="profesional_ci" value="{{ sesion[5] }}">
+        <input type="text" name="caballo_nombre" value="{{ sesion[8] }}">
+        <input type="text" name="observaciones" value="{{ sesion[9] }}">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

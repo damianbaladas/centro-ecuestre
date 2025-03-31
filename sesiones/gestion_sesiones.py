@@ -35,3 +35,31 @@ def agregar_sesion(fecha, paciente_ci, profesional_ci, caballo_nombre, observaci
 
     cursor.close()
     conn.close()
+
+def editar_sesion(id, fecha, paciente_ci, profesional_ci, caballo_nombre, observaciones):
+    conn = database.conectar_db()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT id FROM pacientes WHERE ci = %s', (paciente_ci,))
+    paciente_id = cursor.fetchone()
+    cursor.execute('SELECT id FROM profesionales WHERE ci = %s', (profesional_ci,))
+    profesional_id = cursor.fetchone()
+    cursor.execute('SELECT id FROM caballos WHERE nombre = %s', (caballo_nombre,))
+    caballo_id = cursor.fetchone()
+
+    if paciente_id and profesional_id and caballo_id:
+        cursor.execute('UPDATE sesiones SET fecha = %s, paciente_id = %s, profesional_id = %s, caballo_id = %s, observaciones = %s WHERE id = %s', (fecha, paciente_id[0], profesional_id[0], caballo_id[0], observaciones, id))
+        conn.commit()
+    else:
+        print("Error: Paciente, profesional o caballo no encontrado.")
+
+    cursor.close()
+    conn.close()
+
+def eliminar_sesion(id):
+    conn = database.conectar_db()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM sesiones WHERE id = %s', (id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
