@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Caballos</title>
+</head>
+<body>
+    <h1>Caballos</h1>
+    <form method="POST">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="raza" placeholder="Raza">
+        <input type="number" name="edad" placeholder="Edad">
+        <button type="submit">Agregar Caballo</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for caballo in caballos %}
+            <tr>
+                <td>{{ caballo[1] }}</td>
+                <td>{{ caballo[2] }}</td>
+                <td>{{ caballo[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

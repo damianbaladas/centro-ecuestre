@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Profesionales</title>
+</head>
+<body>
+    <h1>Profesionales</h1>
+    <form method="POST">
+        <input type="text" name="ci" placeholder="Cédula de Identidad">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellidos" placeholder="Apellidos">
+        <input type="text" name="especialidad" placeholder="Especialidad">
+        <button type="submit">Agregar Profesional</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Especialidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profesional in profesionales %}
+            <tr>
+                <td>{{ profesional[0] }}</td>
+                <td>{{ profesional[1] }}</td>
+                <td>{{ profesional[2] }}</td>
+                <td>{{ profesional[3] }}</td>
+                <td>{{ profesional[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

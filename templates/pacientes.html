@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Pacientes</title>
+</head>
+<body>
+    <h1>Pacientes</h1>
+    <form method="POST">
+        <input type="text" name="ci" placeholder="Cédula de Identidad">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellidos" placeholder="Apellidos">
+        <input type="text" name="historial_medico" placeholder="Historial Médico">
+        <button type="submit">Agregar Paciente</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Historial Médico</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente[0] }}</td>
+                <td>{{ paciente[1] }}</td>
+                <td>{{ paciente[2] }}</td>
+                <td>{{ paciente[3] }}</td>
+                <td>{{ paciente[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

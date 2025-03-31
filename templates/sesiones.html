@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sesiones</title>
+</head>
+<body>
+    <h1>Sesiones</h1>
+    <form method="POST">
+        <input type="text" name="fecha" placeholder="Fecha">
+        <input type="text" name="paciente_ci" placeholder="Cédula Paciente">
+        <input type="text" name="profesional_ci" placeholder="Cédula Profesional">
+        <input type="text" name="caballo_nombre" placeholder="Nombre Caballo">
+        <input type="text" name="observaciones" placeholder="Observaciones">
+        <button type="submit">Agregar Sesión</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Cédula Paciente</th>
+                <th>Nombre Paciente</th>
+                <th>Apellidos Paciente</th>
+                <th>Cédula Profesional</th>
+                <th>Nombre Profesional</th>
+                <th>Apellido Profesional</th>
+                <th>Nombre Caballo</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sesion in sesiones %}
+            <tr>
+                <td>{{ sesion[1] }}</td>
+                <td>{{ sesion[2] }}</td>
+                <td>{{ sesion[3] }}</td>
+                <td>{{ sesion[4] }}</td>
+                <td>{{ sesion[5] }}</td>
+                <td>{{ sesion[6] }}</td>
+                <td>{{ sesion[7] }}</td>
+                <td>{{ sesion[8] }}</td>
+                <td>{{ sesion[9] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
